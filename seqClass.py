@@ -12,11 +12,12 @@ if len(sys.argv) == 1:
 args = parser.parse_args()
 
 #To convert to upper-case the input
+#To correct the RNA caracterization:I have changed elif to if  
 args.seq = args.seq.upper()
 if re.search('^[ACGTU]+$', args.seq):
     if re.search('T', args.seq):
         print ('The sequence is DNA')
-    elif re.search('U', args.seq):
+    if re.search('U', args.seq):
         print ('The sequence is RNA')
     else:
         print ('The sequence can be DNA or RNA')
